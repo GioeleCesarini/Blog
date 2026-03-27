@@ -1,69 +1,401 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Introduzione allo Studio dei Buchi Neri</title>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async>
-    </script>
-    <meta charset="utf-8" />
-
-    <link rel="stylesheet" href="IntroBH.css"/> 
-</head>
-
-<body>
-
-    <header>
-        <div class="container">
-        <h1>Blog di Gioele</h1>
-        <nav>
-            <ul>
-                <li> <a href="../../Home.html"> Home </a> </li>
-                <li> <a href="../Articoli.html"> Articoli </a> </li>
-            </ul>
-        </nav>
-        </div>
-    </header>
-  
-    
-     <!-- Inizio Documento -->
-
-    <article>
-
-        <h1>Introduzione ai Buchi Neri</h1>
-        <div class="box">
-
-            <!-- Indice -->
-
-            <div class="boxIndice">
-            <nav> 
-                <a name="Indice"></a>
-                <h2> Indice </h1>
-
-                <div class="elenco">
-                <ul> 
-                    <li> <a href="#Premessa"> Premessa </a> </li>
-                    <li> <a href="#Introduzione"> Introduzione </a> </li>
-                    <li> <a href="#Cos'è sta roba quindi e dove la trovo?"> Cos'è sta roba quindi e dove la trovo? </a> </li>
-                    <li> <a href="#I Primi Comandi"> I Primi Comandi </a> </li>
-                    <li> <a href="#Esempio"> Esempio </a> </li>
-                    <li> <a href="#Come Fare un Elenco Puntato"> Come Fare un Elenco Puntato </a> </li>
-                    <li> <a href="#Come Inserire delle Immagini"> Come Inserire delle Immagini </a> </li>
-                    <li> <a href="#Come Inserire delle Immagini"> Come Inserire delle Immagini </a> </li>
-                    <li> <a href="#Il Famigerato e Tanto Odiato Indice"> Il Famigerato e Tanto Odiato Indice </a> </li>
-                    <li> <a href="#La Bibliografia"> La Bibliografia </a> </li>
-                </ul>
-                </div>
-            </nav>
-            </div>
+    <title>Buchi Neri - Tesina</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2em;
+        }
+        h1, h2, h3, h4, h5 {
+            color: #111;
+        }
+        /* Title Page Styles */
+        .titlepage {
+            text-align: center;
+            margin-bottom: 4em;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .titlepage img {
+            height: 6.5cm;
+            margin-bottom: 0.5cm;
+        }
+        .titlepage .course {
+            font-size: 1.5em;
+            margin-bottom: 2cm;
+        }
+        .titlepage .title {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 4cm;
+        }
+        .titlepage .people {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2cm;
+        }
+        .titlepage .people > div {
+            width: 47%;
+        }
+        .titlepage .people .students {
+            text-align: right;
+        }
+        .titlepage .people .teachers {
+            text-align: right;
+        }
+        .titlepage .year {
+            margin-top: auto;
+        }
         
-
-        </div>
-    </article>
-
+        /* Layout Styles for Wrapfigures */
+        .wrap-right {
+            float: right;
+            margin: 0 0 1em 1em;
+            max-width: 40%;
+            text-align: center;
+        }
+        .wrap-left {
+            float: left;
+            margin: 0 1em 1em 0;
+            max-width: 40%;
+            text-align: center;
+        }
+        figure {
+            text-align: center;
+            margin: 2em 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        figcaption {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #555;
+            margin-top: 0.5em;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: #f9f9f9;
+            padding: 1.5em;
+            border-radius: 5px;
+            margin-bottom: 3em;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 1.5em;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
 <body>
 
-<html>
+    <div class="titlepage">
+        <div>
+            <img src="Figure/unilogo.png" alt="University Logo">
+            
+            <div class="course">Tesina di Introduzione all'Astrofisica e Cosmologia</div>
+            
+            <div class="title">Buchi Neri</div>
+            
+            <div class="people">
+                <div></div> <div class="students">
+                    Studenti:<br>
+                    <span style="font-size: 1.2em;"><strong>Gioele Cesarini<br>Pietro Migliarino</strong></span>
+                </div>
+            </div>
+            
+            <div class="people">
+                <div></div> <div class="teachers">
+                    Docenti:<br>
+                    <span style="font-size: 1.2em;"><strong>Silvano Tosi<br>Enzo Franco Branchini</strong></span>
+                </div>
+            </div>
+            
+            <div class="year">Anno accademico 2023/2024</div>
+        </div>
+    </div>
 
+    <hr>
+
+    <div class="toc">
+        <h2>Indice</h2>
+        <ul>
+            <li><a href="#sec1">1. Introduzione: Perché i Buchi Neri?</a></li>
+            <li><a href="#sec2">2. Una Prima Definizione:</a></li>
+            <li><a href="#sec3">3. Il Ruolo della Relatività Generale:</a></li>
+            <li><a href="#sec4">4. Origine dei Buchi Neri:</a></li>
+            <li><a href="#sec5">5. Evoluzione dei Buchi Neri:</a></li>
+            <li><a href="#sec6">6. Come si Osserva un Buco Nero?</a></li>
+            <li><a href="#sec7">7. Esempi:</a></li>
+            <li><a href="#sec8">8. Conclusione:</a></li>
+            <li><a href="#sec9">9. Bibliografia:</a></li>
+        </ul>
+    </div>
+
+    <h2 id="sec1">1. Introduzione: Perché i Buchi Neri?</h2>
+    <div class="wrap-right" style="max-width: 30%;">
+        <img src="Figure/Origine/INter.jpeg" alt="Interstellar">
+        <figcaption>Immagine artistica tratta da Interstellar</figcaption>
+    </div>
+    <p>Molti studenti di fisica intraprendono questo percorso di studi proprio per il fascino esercitato da oggetti esotici, spesso enfatizzati nella divulgazione scientifica e nella fantascienza, come i buchi neri. Con loro rammarico, appena iniziato il percorso universitario, si accorgeranno che rarissimamente riusciranno a toccare con mano questi fenomeni. Il nostro intento in questa tesina è proprio quello di mettere insieme diverse fonti e le conoscenze accumulate fino ad ora nel nostro percorso per approfondire il tema dei buchi neri da un punto di vista di uno studente di laurea triennale. Vediamo subito di cosa si tratta.</p>
+    <div class="clear"></div>
+
+    <h2 id="sec2">2. Una Prima Definizione:</h2>
+    <p>In prima analisi si può dire che un buco nero è una zona dello spaziotempo che si forma a seguito del collasso gravitazionale di una massa, dove la forza di gravità diventa talmente intensa che nemmeno la luce riesce a sfuggire. Per capire intuitivamente come questo sia possibile, possiamo considerare il concetto di velocità di fuga secondo Newton. Immaginiamo di lanciare un sasso verso l'alto: se la velocità iniziale non è sufficientemente alta, il sasso raggiungerà una certa altezza prima di ricadere, poiché l'energia cinetica si esaurisce nel vincere l'attrazione gravitazionale. Questa altezza dipende esclusivamente dalla velocità iniziale.</p>
+    <p>Ora, se consideriamo un corpo molto più massiccio e compatto della Terra, la velocità di fuga aumenterà, questo poiché il rapporto tra massa e raggio cresce se la massa aumenta e il raggio diminuisce, vedi la nota formula della velocità di fuga:</p>
+    
+    \[ v_f=\sqrt{\frac{2GM}{r}} \]
+    
+    <p>Dove dunque \(M\) è la massa del corpo che stiamo considerando ed \(r\) è il suo raggio.</p>
+    <p>Possiamo quindi immaginare che, con un'enorme massa e densità, la velocità di fuga sulla superficie del corpo possa superare la velocità della luce. Secondo la teoria newtoniana, un corpo simile apparirebbe completamente nero da lontano, poiché nessuna luce riuscirebbe a sfuggire dalla sua attrazione gravitazionale.</p>
+    <p>Fu nel 1784 che l'astronomo John Michell giunse proprio a questa conclusione, ideando per primo il concetto di buco nero, molto prima di Einstein e della Relatività Generale. Il risultato di Michell, ovviamente, non aveva grande valore scientifico, piuttosto si può dire avesse un valore profetico. Nella teoria di Newton infatti la velocità della luce non ha alcuno stato assoluto, la luce potrebbe ancora sfuggirne se si ipotizzasse che essa sia notevolmente più elevata in prossimità della superfici di questa stella "scura". La scoperta e la definizione matematica di buco nero verrà data molto più tardi nel tempo con l'arrivo della già citata Relatività Generale.</p>
+
+    <h2 id="sec3">3. Il Ruolo della Relatività Generale:</h2>
+    <p>Non trascurabile è il ruolo della Relatività Generale che, come abbiamo detto nella sezione precedente, è necessaria per una trattazione rigorosa. Non approfondiremo però questo tema e analizzeremo i buchi neri dando per scontato tutta la parte teorica e matematica. Tratteremo dunque brevemente la Relatività generale per dare contezza della struttura dei buchi neri rifacendoci sempre ad informazioni teoriche ben supportate da dati sperimentali senza addentrarci dunque nelle teorie più speculative:</p>
+
+    <h3>3.1 Equazioni di Einstein:</h3>
+    <p>In un trattamento rigoroso, a prescindere dalla loro origine, i buchi neri vengono analizzati tramite le soluzioni esatte dell'equazione di Einstein:</p>
+    
+    \[ G=\frac{8\pi\mathcal{G}}{c^4}T \]
+    
+    <p>Dove \(G\) è il tensore geometrico mentre \(T\) è il tensore energia-impulso, l'uno è legato alla geometria dello spazio, mentre l'altro alla materia presente in esso. L'equazione di Einstein si può ottenere, per esempio, come versione relativistica dell'equazione di Poisson, usando l'analogia tra accelerazione di deviazione e accelerazione di Newton per legare il potenziale gravitazionale e la curvatura.</p>
+
+    <h3>3.2 Metrica di Schwarzschild:</h3>
+    <p>Matematicamente e fisicamente si possono definire diversi tipi di buchi neri, come il buco nero di Schwarzschild, Kerr e Reissner-Nordström, che descrivono rispettivamente buchi neri non-rotanti, rotanti e carichi. Il nostro intento non è quello di approfondire nel dettaglio le varie descrizioni, sono complesse e non adatte ad una introduzione dell'argomento. Per introdurre la struttura del buco nero vediamo però la metrica di Schwarzschild che in particolare fornisce la prima comprensione di questi fenomeni nella casistica non-rotante. La metrica di Schwarzschild descrive il campo gravitazionale al di fuori di una massa sferica, intuitivamente possiamo dire che è particolarmente interessante poiché una stella, per esempio, si può approssimare ad una sfera e noi sappiamo che è proprio da qui che può generarsi un buco nero:</p>
+
+    <h3>3.3 Orizzonte degli Eventi e Singolarità:</h3>
+    <p>Importante sottolineare cosa sia il raggio di Schwarzschild. Si tratta di un raggio caratteristico associato ad ogni massa e definito come:</p>
+    
+    \[ r_s=\frac{2GM}{c^2} \]
+    
+    <p>Quando si forma un buco nero, l'intera massa collassa in un solo punto, che possiamo assumere, con le giuste coordinate, in \(r=0\). Tale punto si chiama singolarità ma non è l'unico punto di interesse in un buco nero, esso infatti influenza lo spazio intorno, fino ad un certo raggio, chiamato raggio di Schwarzschild: è fino a qui che si estende l'orizzonte degli eventi. Inoltre il raggio di Schwarzschild, può essere utilizzato per capire che dimensioni dovrebbe raggiungere un oggetto per collassare in un buco nero, il raggio di Schwarzschild della terra è di appena \(r=8,87mm\), significa che, per collassare in un buco nero, l'intera massa terrestre dovrebbe essere concentrata in un pallina di raggio inferiore a \(10mm\).</p>
+    <p>Affinché sia più chiaro cosa siano l'orizzonte degli eventi e la singolarità scriviamo la metrica di Schwarzschild in coordinate sferiche:</p>
+    
+    \[ ds^2=\left(1-\frac{r_s}{r}\right)dt^2-\left(1-\frac{r_s}{r}\right)^{-1}dr^2-r^2d\Omega^2 \]
+    
+    <p>Ci sono due punti di discontinuità apparenti: in \(r=0\) e \(r=r_s\). Rispettivamente, \(r=0\) è la singolarità e \(r=r_s\) è l'orizzonte degli eventi. La particolarità è che tramite un apposito cambio di coordinate, per esempio attraverso le coordinate di Eddington-Finkelstein è possibile eliminare il punto di discontinuità in \(r=r_s\), mentre risulta non eliminabile con nessun cambio di coordinate \(r=0\). Tutto ciò ci suggerisce che la porzione di spazio \(0 < r \le r_s\) non sia tanto diversa dallo spazio al di fuori l'orizzonte degli eventi. Una differenza potrebbe in realtà esserci, si tratta infatti di alcune caratteristiche esotiche che potrebbe avere lo spazio all'interno dell'orizzonte (inversione delle componenti delle metrica spaziali e temporali) che però non affronteremo qui. Ipotizzando di viaggiare a bordo di un'astronave verso la singolarità non ci accorgeremmo di oltrepassare l'orizzonte degli eventi. Cosa caratterizza allora l'orizzonte degli eventi fisicamente? Per un osservatore a bordo dell'astronave abbiamo detto che non cambia assolutamente niente, ma per un osservatore fisso che guarda l'astronave da lontano?</p>
+    <p>Si può dimostrare che un osservatore lontano vedrebbe l'astronave rallentare sempre di più mentre si avvicina all'orizzonte fino effettivamente a fermarsi sul bordo per un tempo infinito. Tutto ciò a ricordarci che nessuna informazione può uscire dall'orizzonte degli eventi, neanche la luce; come osservatori esterni dunque non possiamo sapere dove si troverà l'astronave ma solo che effettivamente ha superato \(r=r_s\) e che mai potrà tornare indietro o comunicare con noi.</p>
+    <p>È interessante notare che per un buco nero di poche masse solari l'orizzonte degli eventi avrebbe un raggio di poche decine di chilometri, ciò farebbe si che le forze di marea siano in grado di uccidere un essere umano molto prima in realtà che esso riesca a raggiungere l'orizzonte degli eventi. Il caso che immaginiamo noi è quello di buchi neri supermassicci, nell'ordine delle milioni di masse solari, in questo caso l'orizzonte degli eventi può essere anche di milioni di chilometri e le forze di marea non sarebbero pericolose durante l'attraversamento dell'orizzonte rendendolo dunque effettivamente invisibile per un osservatore sull'astronave.</p>
+    <p>Possiamo in definitiva dire che un buco nero è composto da 2 principali oggetti, la singolarità e l'orizzonte degli eventi. Può essere composto anche un terzo oggetto, chiamato disco di accrescimento, che effettivamente caratterizza tutti i buchi neri "fotografati" fino ad oggi ed è ciò che li rende effettivamente visibili, essendo che per loro natura non lo sarebbero.</p>
+    
+    <p>Inseriamo l'immagine rappresentativa dell'anatomia di un buco nero per completezza:</p>
+    <figure>
+        <img src="Figure/RelGen/anatomiaBH.png" alt="Anatomia di un Buco Nero" style="width: 100%;">
+    </figure>
+
+    <h3>3.4 Disco di Accrescimento:</h3>
+    <p>Un disco di accrescimento si forma quando del materiale viene catturato da una sorgente gravitazionale massiva, che in realtà può essere una stella compatta, un buco nero, o un altro oggetto astrofisico. Questo materiale può derivare da stelle vicine, pianeti disgregati, nubi di gas interstellare o altre strutture cosmiche. Nei sistemi di accrescimento più estremi, come quelli associati ai nuclei galattici attivi (AGN), il materiale che spiraleggia verso un buco nero supermassiccio viene sottoposto ad un intenso gradiente gravitazionale, generando un riscaldamento estremo dovuto alla dissipazione viscosa e all'attrito nel disco. Questo riscaldamento porta alla produzione di radiazioni elettromagnetiche in vari spettri, sebbene il disco stesso non sia tipicamente abbastanza caldo da emettere raggi X. Tuttavia, l'emissione X degli AGN, particolarmente intensa, è attribuita alla presenza di una corona di plasma, che circonda il disco di accrescimento e raggiunge temperature di milioni di gradi Kelvin. Questo plasma estremamente caldo è responsabile dell'emissione di raggi X ad alta energia, prima che il materiale attraversi l'orizzonte degli eventi. Nei sistemi binari X, che includono una stella compatta come una nana bianca, una stella di neutroni o un buco nero di massa stellare, il disco di accrescimento si forma quando la componente compatta cattura materiale dalla stella compagna. Questo processo di trasferimento di massa, porta alla formazione di un disco attorno all'oggetto compatto, dove l'energia potenziale gravitazionale della materia viene convertita in energia cinetica e, infine, in radiazione elettromagnetica. I dischi di accrescimento attorno ai buchi neri supermassicci, come quelli che alimentano i quasar, sono tra le strutture più luminose dell'universo. L'emissione energetica di questi dischi può superare quella di intere galassie di stelle, rendendoli fari cosmici visibili a grandi distanze.</p>
+
+    <h2 id="sec4">4. Origine dei Buchi Neri:</h2>
+    <p>I buchi neri, sebbene siano spesso descritti in termini semplici, rappresentano un insieme eterogeneo di oggetti astrofisici con origini, proprietà e scale dimensionali diverse. Analizziamo in dettaglio i quattro principali tipi di buchi neri in base alla loro origine: primordiali, stellari, di massa intermedia e supermassicci.</p>
+
+    <h3>4.1 Buchi Neri Stellari:</h3>
+    <p>I primi dei quattro tipi di buchi neri sono quelli stellari. Questo tipo di singolarità si genera alla fine del processo evolutivo di una stella molto massiva. Per stella massiva intendiamo stelle che hanno una massa maggiore di \(8\) masse solari, in particolare, affinché si formi un buco nero, si stima che la massa della stella morente debba essere almeno 20-30 volte la massa solare. Il ciclo evolutivo di queste stelle risulta diverso da quelle di masse inferiori: infatti, durante la fase AGB, queste stelle sono in grado di avviare una catena di reazioni di elementi sempre piu pesanti, fino ad arrivare alla produzione di \(^{56}Fe\) e di \(^{56}Ni\), il quale però decade in \(^{56}Fe\) e \(^{56}Co\). Il nucleo di \(^{56}Fe\) non riesce più ad avviare reazioni, quindi inizia a collassare, cosicché gli elettroni diventano degeneri, mentre la massa del nucleo aumenta a causa del produzione di \(^{56}Fe\) nelle shell superiori. Si giunge quindi a una situazione in cui la densità del nocciolo rende non trascurabili due processi di produzione di neutroni: La fotodisintegrazione dei nuclei, che porta alla scissione dei nuclei del \(^{56}Fe\) in protoni e neutroni, e la neutronizzazione, che fonde protoni ed elettroni a formare neutroni. Questi processi portano il nucleo a contrarsi ancora più velocemente fino a quando i neutroni diventano degeneri e questo collasso si interrompe; al tempo stesso gli strati più esterni precipitano sotto effetto gravitazionale scontrandosi con il nucleo e rimbalzando su di esso. Questo genere un onda d'urto che fa esplodere gli strati esterni della stella, provocando una supernova di tipo II. Nel caso in cui la massa del residuo stellare successivo all'esplosione superi la soglia limite per la formazione di stelle di neutroni, la quale è ancora non nota con precisione ma che si stima essere di circa 3 masse solari (analogo al limite di Chandrasekhar esiste anche il limite di Tolman-Oppenheimer-Volkoff che pone un limite superiore a 3.8 masse solari), l'attrazione gravitazionale non può essere contrastata nemmeno dalla pressione di degenerazione dei neutroni, di conseguenza i neutroni collassano contraendosi in un punto e generano una singolarità.</p>
+    <p>Attualmente le rivelazioni hanno portato alla conoscenza di circa 50 buchi neri stellari (confermati o che si sospetta lo siano) nella nostra galassia, con masse di al più qualche decina di masse solari e raggi di Schwarzschild dell'ordine di \(\sim 30km\); nonostante questo si ipotizza che nella sola Via Lattea ce ne possano essere anche 100 milioni. Sicuramente il più noto di questa tipologia è Cygnus X-1, in quanto fu il primo ad essere accettato come tale, nonché uno dei più massivi osservati; recentemente è stato anche scoperto Gaia BH3, il quale, con una massa di circa 33 masse solari, risulta essere il buco nero stellare più massiccio attualmente osservato. Sul primo di questi due buchi neri torneremo a parlarne in seguito. Una nota finale riguarda i buchi neri che si è osservato che, probabilmente, possano essersi originati dallo scontro di 2 stelle di neutroni in un sistema binario, consideriamo questi buchi neri comunque di origine stellare e ci torneremo in seguito quando parleremo dei metodi di rivelazione di questi ultimi.</p>
+
+    <h3>4.2 Buchi Neri Supermassicci:</h3>
+    <p>Un'altra categoria molto importante sono i Buchi Neri SuperMassicci (SMBH). Questa tipologia, a differenza della precedente, risulta avere masse enormi, che vanno da qualche decina di migliaia di masse solari fino anche a decine di miliardi, e raggi di Schwarzschild che possono estendersi anche oltre l'orbita di Mercurio. Una peculiarità di questi buchi neri è che si trovano al centro di quasi tutte le galassie: attualmente ne sono noti circa 80, tra cui ovviamente quello al centro della Via Lattea, Sagittarius A*.</p>
+    <p>La nascita di questi buchi neri è ancora oggetto di studio, infatti sono state fatte varie ipotesi sulla loro genesi. Una teoria propone che questi buchi neri siano dei buchi neri di origine stellare che nel corso di miliardi di anni hanno accresciuto la loro massa fino a raggiungere la massa attuale; un'altra teoria invece sostiene che i SMBH siano generati dalla fusione (<em>merging</em>) di buchi neri più piccoli; un'ultima teoria invece prevede che questi buchi neri non siano di origine stellare ma che si siano formati direttamente dal collasso di nubi di gas primordiale.</p>
+
+    <h3>4.3 Buchi Neri Intermedi:</h3>
+    <p>La terza tipologia di buchi neri sono quelli Intermedi, ovvero dei buchi neri che hanno masse tra circa 100 e 10.000 masse solari. Questa categoria è molto meno scientificamente compresa, infatti attualmente non abbiamo ancora certezze di buchi neri intermedi conosciuti, ma abbiamo solo dei candidati ad esserlo. Questa insicurezza è dovuta alla difficoltà nel rilevarli in quanto non presentano dischi di accrescimento e sono particolarmente rari. Tuttavia si ipotizza che esistano per varie ragioni: in primo luogo sono teoricamente possibili, inoltre spiegherebbero il gap che c'è tra le masse dei buchi neri stellari e quelle dei SMBH.</p>
+    <p>Anche in questo caso ci sono varie ipotesi sulla loro formazione: una tra queste sostiene che potrebbero derivare dal collasso di popolazioni di stelle particolarmente massicce in ammassi globulari, mentre un'altra sostiene che possano essersi generati in seguito a una serie di fusioni di buchi neri stellari, similmente ai SMBH ma in ambienti con condizioni meno estreme tipiche dei centri delle galassie.</p>
+
+    <h3>4.4 Buchi Neri Primordiali:</h3>
+    <p>L'ultima categoria di buchi neri si tratta attualmente di una teoria, in quanto al momento non si hanno prove certe della loro esistenza. Si ipotizza infatti che buchi neri primordiali siano delle singolarità che si sono formate nei primissimi istanti dell'universo, durante il quale era estremamente caldo e soprattuto denso. Proprio per l'altissima densità sucessiva al Big Bang, una qualche fluttuazione nello spazio-tempo primordiale potrebbe aver generato un collasso gravitazionale dando vita a un buco nero. Si ipotizza che i buchi neri primordiali formatisi possano avere masse variano da \(10^{-5}\) volte la massa di una graffetta fino a \(10^5\) volte la massa solare. Considerato questo, attualmente si suppone che solo i buchi neri più massivi siano giunti fino a noi in quanto, a causa della radiazione di Hawking, quelli più piccoli si suppone siano evaporati.</p>
+    <p>Un fatto interessante riguardante questa categoria è che si è stabilito un densità massima di buchi neri primordiali utilizzando i gamma-ray burst: infatti, nonostante attualmente non sembra esserci alcuna correlazione tra i due fenomeni in quanto si ipotizza che i lampi gamma siano generati o da esplosioni di supernovae estreme o da collisioni tra due stelle di neutroni o tra una stella di neutroni e un buco nero, il rilevamento di un fondo di raggi gamma ha permesso di stabilire che, in media, non possano esistere più di 300 buchi neri primordiali per anno-luce cubico, poiché una maggiore densità genererebbe un fondo di raggi gamma maggiore di quello attualmente rilevato.</p>
+
+    <h2 id="sec5">5. Evoluzione dei Buchi Neri:</h2>
+    
+    <h3>5.1 Cenni sulla Vita Teorica di un Buco Nero:</h3>
+    <p>Una volta che il buco nero è formato, a prescindere di come sia classificabile, avrà una certa evoluzione. Esso infatti, come è prevedibile, tenderà ad accrescere la propria massa a seconda della disponibilità di materia intorno a sé, al più si può prevedere che la sua massa rimanga costante se non entrasse in contatto con altra materia. Come abbiamo spiegato precedentemente il disco di accrescimento è il principale modo con cui un buco nero accresce la sua massa, un altro modo può essere la fusione di più buchi neri. Infatti, LIGO e Virgo, hanno fornito prove dirette di queste fusioni. Le onde gravitazionali rivelate portano informazioni sulla massa e sullo spin dei buchi neri coinvolti, permettendo agli scienziati di inferire l'evoluzione della loro massa e rotazione. In questo modo i buchi neri fondendosi danno origine ad uno nuovo con massa circa la somma delle due masse originarie. Il loro destino sembra quello di essere sempre più massivi. Vi sono però delle teorie sulle fasi finali della loro evoluzione, in particolare legate alla loro eventuale evaporazione tramite la radiazione di Hawking. Gli effetti della radiazione di Hawking sono troppo deboli per essere osservati con la tecnologia attuale e fino ad oggi non vi è dunque alcuna prova sperimentale della sua veridicità. In conclusione però, rimanendo ai dati sperimentali che abbiamo oggi, le osservazioni di onde gravitazionali, raggi X e altri mezzi indicano che i buchi neri non sono entità statiche, ma evolvono attraverso interazioni con il loro ambiente. Le fusioni, l'accrescimento e, in teoria, l'evaporazione sono processi che modellano il destino finale di un buco nero. Tuttavia, rimangono domande aperte, soprattutto riguardo alla fine ultima dei buchi neri, che aspettano conferme sperimentali future.</p>
+
+    <h3>5.2 Legame tra Galassie e Buchi Neri:</h3>
+    <p>I buchi neri, come abbiamo visto fino ad ora, sono stati spesso osservati non certo come entità astrofisiche singole ma in relazione alla materia che li circonda, per questo è un caso interessante quello dell'evoluzione di buchi neri supermassicci nel nucleo delle galassie. La coevoluzione di questi due sistemi su scale temporali cosmologiche implica una stretta interdipendenza tra la crescita dei buchi neri supermassicci e l'evoluzione delle loro galassie ospiti. Questo legame è supportato da numerose evidenze osservative e da modelli teorici che suggeriscono processi dinamici e complessi:</p>
+
+    <h4>5.2.1 Correlazione Massa del Buco Nero e Bulge della Galassia:</h4>
+    <div class="wrap-left" style="max-width: 35%;">
+        <img src="Figure/Sperimentale/M-sigma.jpeg" alt="M-sigma Relation">
+    </div>
+    <p>Una delle prime indicazioni di un legame evolutivo tra galassie e SMBH fu presentato nel 1999 all'Istituto di Astrofisica di Parigi. Si tratta della relazione ricavata sperimentalmente \(M_{BH}-\sigma\) che mostra una correlazione tra la massa del buco nero supermassiccio \(M_{BH}\) e la dispersione delle velocità stellari \(\sigma\) all'interno del bulge. Vediamo in particolare la relazione rivista poi successivamente:</p>
+    
+    \[ \frac{M}{10^8M_s} \simeq 1.9 \cdot \left(\frac{\sigma}{200kms^{-1}}\right)^{5.1} \]
+    
+    <div class="wrap-right" style="max-width: 60%;">
+        <img src="Figure/Sperimentale/bulge.jpeg" alt="Bulge della Via Lattea">
+        <figcaption>Immagine artistica del bulge della Via Lattea</figcaption>
+    </div>
+    <p>Definiamo meglio cosa sia un bulge: un bulge, è una struttura prominente costituita da un gran numero di stelle. Questo termine si riferisce principalmente all'insieme centrale di stelle presente nella maggior parte delle galassie a spirale. Il nucleo delle galassie a spirale è generalmente formato da stelle di popolazione II, caratterizzate da piccole dimensioni, colore rosso e un'età avanzata, essendo nate circa un miliardo di anni dopo il Big Bang, contemporaneamente alla formazione della galassia stessa. La relazione \(M_{BH}-\sigma\) è generalmente interpretata come l'implicazione di un qualche meccanismo di feedback meccanico tra la crescita dei buchi neri supermassicci e la crescita dei rigonfiamenti galattici, anche se la fonte di questo feedback è ancora incerta, definiremo dopo meglio cosa sia un feedback. La scoperta della relazione \(M_{BH}-\sigma\) è stata interpretata da molti astronomi come l'indicazione che i buchi neri supermassicci sono componenti fondamentali delle galassie. Prima della scoperta di questa relazione esisteva una grande discrepanza tra le masse dei buchi neri derivate utilizzando le diverse tecniche: misurazioni dirette (basate sul moto delle stelle) e misurazioni indirette (basate sul calcolo della densità cosmologica dei buchi neri necessaria per spiegare la luce dei quasar). Il rapporto medio tra la massa del buco nero e la massa del rigonfiamento nelle grandi galassie di tipo primitivo, grazie a questa relazione, è ora ritenuto essere circa \(\frac{1}{200}\), e diventa sempre più piccolo man mano che ci si sposta verso galassie meno massicce, prima del 2000 si credeva che fosse \(\frac{1}{100}\) la relazione, dunque una significativa differenza. È interessante notare che, la relazione sopracitata, prevede l'esistenza di buchi neri nella gamma di massa \(10^2–10^5\cdot M_s\) ("buchi neri di massa intermedia") in galassie di piccola massa, e l'esistenza di buchi neri di massa intermedia è stata ragionevolmente supposta in un certo numero di galassie che contengono nuclei galattici attivi, sebbene i valori di \(M_{BH}\) in queste galassie siano comunque incerti. Non sono state trovate prove chiare anche per buchi neri ultra-massicci con masse superiori a \(10^{10}\cdot M_s\), anche se questo può essere una conseguenza prevista del limite superiore osservato per \(\sigma\).</p>
+    <div class="clear"></div>
+
+    <h4>5.2.2 Fusioni di Galassie e Crescita dei Buchi Neri Supermassicci</h4>
+    <p>Le fusioni di galassie sono considerate un meccanismo chiave per la crescita sia delle galassie che dei loro buchi neri centrali. Durante una fusione, il gas può essere canalizzato verso il centro della galassia risultante, alimentando il SMBH e potenzialmente innescando un AGN. Le osservazioni di galassie in fusione, come le galassie "LIRG" (Luminous Infrared Galaxies), mostrano spesso segni di attività AGN, supportando l'idea che le fusioni possano portare a una crescita significativa del SMBH. Inoltre, le fusioni possono portare alla formazione di buchi neri supermassicci binari, che alla fine si fondono, contribuendo alla crescita del SMBH centrale.</p>
+
+    <h4>5.2.3 AGN Feedback ed Evoluzione delle Galassie</h4>
+    <p>Il feedback dei Nuclei Galattici Attivi, cioè l'interazione tra buchi neri supermassicci in accrescimento e le loro galassie ospiti, è fondamentale per la comprensione della co-evoluzione di questi due sistemi. Gli AGN possono emettere potenti "venti" multi-fase e multi-scala che influenzano la formazione stellare e la crescita del buco nero stesso, rimuovendo o riscaldando il gas freddo all'interno della galassia. Questo processo aiuta a spiegare la stretta correlazione di massa osservata tra il buco nero e la galassia ospite. Questo "vento" è composto effettivamente di materia, il gas interstellare, e si ipotizza che si origini dal buco nero centrale e raggiunga poi le parti più esterne della galassia. Si ritiene infatti che svolga un ruolo fondamentale in questo processo, plasmando la co-evoluzione SMBH/galassia, rimuovendo e/o riscaldando il gas freddo dalla galassia ospite, sopprimendo o alimentando la crescita sia del SMBH che della componente stellare e infine dunque spiegando la stretta relazione di massa tra SMBH e galassia ospite. Si è scoperto essere presenti diverse scale e fasi di tali "venti", abbiamo in particolare trovato un recente studio pubblicato su Nature (2018) contenente una tabella che riassume le fasi individuate:</p>
+    
+    <figure>
+        <img src="Figure/Sperimentale/cicone.png" alt="Cicone et al. Table" style="width: 100%;">
+        <figcaption><em>"The largely unconstrained multiphase nature of outflows in AGN host galaxies"</em>, Nature Astronomy</figcaption>
+    </figure>
+
+    <p>Ci sono dunque evidenze osservative del feedback. Uno positivo ed uno negativo. Il primo, rimuovendo parte del gas nella galassia, causa una compressione ed è quello che probabilmente innesca la formazione stellare. Il secondo invece, soprattutto nel caso in cui il vento rimuova gas molecolare, elimina il combustibile per poter formare le stelle, fermando la formazione di quest'ultime. Ciò che ancora non è chiaro è come questi fenomeni di soppressione o accrescimento abbiano inizio. Una nota va agli UFOs:</p>
+
+    <h5>UFOs:</h5>
+    <p>Per UFO si intende in questo caso Ultra-Fast Outflows, ed è la dicitura corretta per i "venti" ultra-veloci e ionizzati, osservabili solo nei raggi X, che sono lanciati dalle regioni più interne del disco di accrescimento del buco nero. Gli UFO sono considerati il motore che alimenta i flussi di gas su scale più ampie, trasferendo energia dal nucleo centrale all'intero mezzo interstellare della galassia.</p>
+
+    <h4>5.2.4 Conclusione:</h4>
+    <p>Il legame evolutivo tra galassie e buchi neri supermassicci è una manifestazione della coevoluzione dinamica di questi due oggetti astrofisici. La loro crescita è interconnessa attraverso una combinazione di processi di accrescimento, feedback e fusioni galattiche. Le osservazioni, supportate da modelli teorici, indicano che la crescita dei SMBH e l'evoluzione delle galassie non possono essere considerate separatamente, ma piuttosto come processi complementari che si influenzano reciprocamente su scale temporali cosmologiche.</p>
+
+    <h2 id="sec6">6. Come si Osserva un Buco Nero?</h2>
+    <p>La rilevazione di buchi neri, nonostante siano per definizione oggetti che non emettono luce, è possibile attraverso una varietà di tecniche osservative che sfruttano i loro effetti sulla materia circostante e lo spaziotempo. Esaminiamo i principali metodi utilizzati per identificare e studiare i buchi neri:</p>
+
+    <h3>6.1 Osservazione delle Orbite di Stelle Lontane: Misurazione della Massa</h3>
+    <div class="wrap-left" style="max-width: 40%;">
+        <img src="Figure/Sperimentale/S2_1.jpeg" alt="S2 Star Orbit">
+    </div>
+    <p>Le stelle che orbitano attorno a un buco nero risentono fortemente della sua gravità, permettendo di inferire la presenza del buco nero attraverso l'analisi delle loro orbite. Il Keck/UCLA Galactic Center Group proprio grazie a questa tecnica è riuscito a stimare la massa del buco nero al centro della nostra galassia, la Via Lattea. Il buco nero è stato chiamato dagli scienziati Sagittarius A* e per esempio la sua massa può essere ricavata dall'analisi dell'orbita della stella S2.</p>
+    <p>Tramite osservazione si ricava che il suo periodo è di circa: \(T \sim 15.8yr\) mentre il suo semiasse maggiore è: \(r \sim 1025AU\). Applicando la terza legge di Keplero:</p>
+    
+    \[ T^2=\frac{4\pi^2}{GM}r^3 \]
+    
+    <p>dunque:</p>
+    
+    \[ M=\frac{4\pi^2}{GT^2}r^3 \]
+    
+    <p>e volendo scriverla in funzione della massa del sole si ottiene:</p>
+    
+    \[ M_s=\frac{4\pi^2}{G(1yr)^2}(1AU)^3 \]
+    
+    <p>ed infine allora:</p>
+    
+    \[ M=\left(\frac{1yr}{T}\right)^2\left(\frac{r}{1AU}\right)^3 \cdot M_s\sim4.3\cdot10^6 \cdot M_s \]
+    
+    <p>L'unico oggetto astrofisico conosciuto che può avere una tale massa (circa 4 milioni di masse solari) in un volume così contenuto (circa \(1AU\)) senza emettere fotoni è un buco nero. Recentemente è stato anche possibile "fotografarne" l'ombra.</p>
+    <div class="clear"></div>
+
+    <h3>6.2 Onde Radio:</h3>
+    
+    <h4>6.2.1 Osservazione di Nuclei Galattici Attivi e Getti Relativistici</h4>
+    <p>I buchi neri supermassicci negli AGN possono emettere getti relativistici di particelle che sono rilevabili nelle onde radio. Questi getti sono prodotti dal processo di accrescimento attorno al buco nero centrale. Il buco nero supermassiccio al centro della nostra galassia, la Via Lattea, è stato rilevato anche attraverso emissioni radio. Sagittarius A* è stato osservato come una sorgente radio compatta e intensa, e le osservazioni delle orbite delle stelle circostanti hanno confermato la presenza di un buco nero con una massa di circa 4 milioni di volte quella del Sole.</p>
+
+    <h4>6.2.2 Ombra del Buco Nero: Imaging Diretta dell'Orizzonte degli Eventi</h4>
+    <p>La tecnica più recente ed impressionante è l'imaging diretto dell'ombra del buco nero, che è la regione scura causata dalla cattura della luce da parte dell'orizzonte degli eventi. Questo richiede un'osservazione estremamente precisa delle emissioni radio provenienti dal gas circostante il buco nero. Questa tecninca è già stata utilizzata più volte, sia sulla nostra galassia che per esempio sulla galassia M87, approfondiremo più avanti nel dettaglio.</p>
+
+    <h3>6.3 Raggi X: Osservazione dell'Accrescimento di Materia</h3>
+    <p>Come abbiamo detto i buchi neri possono esistere anche in una varietà più piccola, al più di poche masse solari. Questo tipo di buchi neri popola le galassie con una frequenza piuttosto alta. Di per sé una volta formatosi da una stella il buco nero non sarà più visibile per sua natura, per nostra fortuna alcuni di questi si originano con delle stelle compagne. Questo comporta la formazione del già citato disco di accrescimento composto da gas e polveri che, cadendo verso l'orizzonte degli eventi, si riscaldano a temperature estremamente elevate, emettendo radiazioni in diverse bande dello spettro elettromagnetico, in particolare nei raggi X, rendendo così il buco nero visibile ai telescopi che lavorano in questa banda. Un esempio interessante di questo tipo di studio è Cignus X-1 che approfondiremo più avanti.</p>
+
+    <h3>6.4 Lente Gravitazionale: Distorsione della Luce di Oggetti Distanti</h3>
+    <div class="wrap-left" style="max-width: 30%;">
+        <img src="Figure/Sperimentale/lenteGrav.jpg" alt="Lente Gravitazionale">
+        <figcaption>Immagine <em>non</em> reale</figcaption>
+    </div>
+    <p>Questa tecnica divenne famosa grazie ad Arthur Eddington che, nel 1919, misurò l'effetto di lente gravitazionale causato dal Sole, fornendo così la prima verifica sperimentale della teoria della Relatività Generale di Einstein. Un buco nero, in teoria, può agire come una lente gravitazionale, distorcendo e amplificando la luce proveniente da oggetti più distanti che si trovano lungo la linea di vista. Questo effetto è più comunemente associato ad oggetti compatti come le stelle ma l'effetto di micro-lente gravitazionale potrebbe essere osservato anche se un buco nero passasse davanti a una stella di fondo, creando un cambiamento temporaneo nella luminosità osservata. Purtroppo, per sfruttare realmente questa tecnica, avremmo bisogno di essere relativamente molto vicini a tali oggetti, si tratta infatti di un effetto molto debole che, in caso di oggetti di massa simile al Sole, risulterebbe praticamente impercettibile a grandi distanze.</p>
+    
+    <div class="wrap-right" style="max-width: 40%;">
+        <img src="Figure/Sperimentale/Roman.png" alt="Roman Space Telescope">
+    </div>
+    <p>I buchi neri di origine stellare hanno masse comparabili alle stelle da cui originano e, uno dei numerosi motivi per cui sono difficili da individuare e studiare, è legato al fatto che la loro forza di gravità non presenta caratteristiche "speciali": se non ci si avvicina significativamente, il loro effetto gravitazionale è indistinguibile da quello esercitato da una stella con la stessa massa. Nonostante fino ad ora non sia stato un metodo utilizzato nell'identificazione di buchi neri, esiste un telescopio che è stato già parzialmente costruito proprio per massimizzare l'effetto di lente gravitazionale: il Nancy Grace Roman Space Telescope. In particolare, questo telescopio verrà lanciato nel 2027 e sarà destinato ad affiancare, per poi sostituire, il telescopio Hubble. Il suo obiettivo primario sarà l'individuazione di nuovi esopianeti. Tuttavia, ipotizziamo che possa allo stesso tempo essere utilizzato per identificare piccoli buchi neri di massa stellare all'interno della nostra galassia, considerato che si stima la presenza di circa 100 milioni di essi.</p>
+    <div class="clear"></div>
+
+    <h3>6.5 Onde Gravitazionali: Rilevazione di Fusioni di Buchi Neri</h3>
+    <p>Le onde gravitazionali sono perturbazioni nello spaziotempo generate da eventi cataclismici come la fusione di buchi neri. La rilevazione diretta di queste onde ha aperto una nuova finestra per l'osservazione dei buchi neri. Nel 2015, LIGO ha rilevato la prima onda gravitazionale proveniente dalla fusione di due buchi neri di circa 30 masse solari ciascuno. Questo evento, noto come GW150914, ha fornito la prova diretta dell'esistenza delle fusioni di buchi neri e ha permesso di misurare la massa e lo spin dei buchi neri coinvolti come accennato precedentemente. La trattazione nello specifico di questo metodo è molto articolata sia da un punto di vista teorico (teoria di gravità linearizzata) che da un punto di vista sperimentale (realizzazione degli interferometri) e non verrà dunque approfondita ulteriormente, riconosciamo però la sua importanza e la rivoluzione che potrebbe portare in campo astrofisico nei prossimi anni.</p>
+
+    <h2 id="sec7">7. Esempi:</h2>
+    <p>Analizziamo ora nel concreto due importati casi di buchi neri, uno stellare facente parte di una binaria X e un altro supermassiccio situato in un centro galattico, citando le caratteristiche osservative principali:</p>
+
+    <h3>7.1 Cignus X-1:</h3>
+    <div class="wrap-left" style="max-width: 50%;">
+        <img src="Figure/Sperimentale/cygx1_illust_orig.jpg" alt="Cygnus X-1">
+        <figcaption>Immagine artistica</figcaption>
+    </div>
+    <p>Come già riportato in precedenza Cygnus X-1 è sicuramente il buco nero stellare più noto in quanto fu il primo ad essere identificato come buco nero. La sua scoperta risale al 1964 quando gli scienziati rilevarono una sorgente di raggi X proprio nella costellazione del Cigno tramite una serie di razzi suborbitale muniti di appositi rilevatori. Una indagine successiva del 1970 condotta dalla NASA, portò inoltre alla scoperta che questa sorgente di raggi X emetteva radiazioni con varie fluttuazioni di intensità ogni secondo, cosa che portò a supporre che la sorgente avesse delle dimensioni ridotte dell'ordine di \(10^5 km\). Nel 1971 vennero inoltre individuate anche delle emissioni radio che corrispondevano a una stella di magnitudo 9, HDE 226868, ovvero una supergigante la cui temperatura superficiale però non era sufficientemente alta per spiegare le emissioni radio rilevate. Si suppose quindi che HDE 226868 dovesse far parte di un sistema binario con un altro oggetto "nascosto". Nello stesso anno, tramite rilevazioni dello spettro di HDE 226868 che permisero di calcolare la massa dell'oggetto nascosto, la quale risultò ben oltre il limite per una stella di neutroni, si ipotizzò che questo corpo fosse un buco nero. Durante gli anni Cygnus X-1 fu soggetto di numerosi studi che portarono ad una sempre maggior conoscenza di esso e rafforzando l'idea che si potesse trattare di un buco nero. Come abbiamo detto fino ad ora i buchi neri possiedono un disco di accrescimento spesso, il potente segnale di raggi X in particolare proveniva dall'accrescimento di materia proveniente dalla stella compagna sul buco nero. La materia, spiraleggiando verso il buco nero, si riscalda a milioni di gradi come già abbiamo approfondito, emettendo radiazioni X intense. Questo processo di accrescimento fu modellato teoricamente all'epoca, e i risultati combaciavano con le osservazioni di Cygnus X-1, consolidando ulteriormente la teoria del buco nero. Nel 1971, la combinazione di prove, la massa dell'oggetto invisibile, l'emissione di raggi X, e il comportamento della stella compagna—portò alla conclusione che Cygnus X-1 fosse un buco nero stellare. Successivamente, nel 1994, con l'avvento della tecnologia di interferometria, fu possibile misurare con precisione la distanza del sistema, confermando ulteriormente la massa elevata dell'oggetto invisibile.</p>
+    <div class="clear"></div>
+
+    <h4>7.1.1 Impatto e Conseguenze:</h4>
+    <p>Cygnus X-1 non solo fornì la prima prova solida dell'esistenza dei buchi neri, ma divenne anche un laboratorio naturale per testare la relatività generale di Einstein. Le osservazioni dell'orizzonte degli eventi e della precessione relativistica di materia attorno al buco nero fornirono ulteriori conferme della validità della teoria. La scoperta di Cygnus X-1 ebbe un impatto profondo sull'astrofisica e sulla nostra comprensione dell'evoluzione stellare. Aprì la strada alla scoperta di molti altri buchi neri stellari e supermassicci, rafforzando l'idea che i buchi neri siano componenti fondamentali dell'universo.</p>
+
+    <h4>7.1.2 Conclusione:</h4>
+    <p>In conclusione, Cygnus X-1 rappresenta uno dei più straordinari successi della scienza osservativa e teorica. La sua scoperta ha dato il via alle successive ricerche sui buchi neri, confermando oltre ogni ragionevole dubbio la loro esistenza, in particolare si otterrà "metaforicamente" la prova definitiva della loro esistenza quando riusciremo a vederne uno, come nel caso del prossimo esempio.</p>
+
+    <h3>7.2 M87:</h3>
+    <p>La galassia Messier 87 (M87), situata a circa 55 milioni di anni luce dalla Terra nella costellazione della Vergine, è una delle galassie più massicce e luminose nel nostro vicinato cosmico. Una delle sue caratteristiche più straordinarie è il buco nero supermassiccio al centro della galassia, noto come M87*, che ha una massa pari a circa 6,5 miliardi di volte quella del Sole. Questo buco nero è diventato celebre per essere stato il primo mai fotografato, un'impresa che rappresenta uno dei traguardi più significativi nella storia dell'astrofisica e per questo vogliamo sottolinearne l'importanza.</p>
+
+    <h4>7.2.1 Processo di Imaging:</h4>
+    <div class="wrap-right" style="max-width: 40%;">
+        <img src="Figure/Sperimentale/M87.jpeg" alt="M87 Black Hole">
+        <figcaption>Immagine di M87 acquisita dall'EHT</figcaption>
+    </div>
+    <p>L'acquisizione dell'immagine di M87* è stata un'impresa tecnica straordinaria. L'EHT ha raccolto petabyte di dati grezzi durante le sue osservazioni, che sono stati poi elaborati mediante algoritmi complessi per ricostruire un'immagine coerente. Questo processo è stato necessario per superare il problema della risoluzione, ottenendo un'immagine che mostrava l'ombra del buco nero, un cerchio scuro circondato da un anello brillante di emissione radio.</p>
+
+    <h5>Algoritmi di Imaging:</h5>
+    <p>Gli algoritmi di elaborazione dei dati sono stati fondamentali per ottenere l'immagine finale. Questi algoritmi, come il "clean algorithm" e metodi di deconvoluzione avanzati, sono stati utilizzati per eliminare il rumore dai dati e per ricostruire l'immagine nel modo più accurato possibile.</p>
+
+    <h5>Risultato Finale:</h5>
+    <p>L'immagine ottenuta ha mostrato per la prima volta la silhouette di un buco nero, confermando le previsioni della relatività generale di Einstein. L'anello luminoso rappresenta la luce deviata dalla gravità estrema del buco nero, mentre la parte centrale scura è l'ombra dell'orizzonte degli eventi.</p>
+    <div class="clear"></div>
+
+    <h4>7.2.2 Tecniche per la Fotografia di un Buco Nero:</h4>
+    <p>La prima immagine diretta dell'orizzonte degli eventi di un buco nero, quella di M87*, è stata ottenuta grazie all'Event Horizon Telescope (EHT), una collaborazione internazionale di radiotelescopi che hanno operato in sincronia per creare un telescopio virtuale con un diametro pari a quello della Terra. L'EHT sfrutta la tecnica della interferometria a lunghissima base (VLBI, Very Long Baseline Interferometry), che permette di combinare i dati raccolti da più radiotelescopi distribuiti in tutto il mondo per ottenere una risoluzione angolare sufficiente a osservare l'orizzonte degli eventi di M87*.</p>
+
+    <div class="wrap-right" style="max-width: 30%;">
+        <img src="Figure/Sperimentale/VLBI.jpeg" alt="VLBI Technique">
+    </div>
+    <h5>Interferometria a lunghissima base (VLBI):</h5>
+    <p>Questa tecnica consiste nel sincronizzare i segnali ricevuti da telescopi separati da migliaia di chilometri utilizzando orologi atomici estremamente precisi. I dati vengono poi combinati mediante elaborazione al computer, ottenendo un’immagine con una risoluzione equivalente a quella di un telescopio con un'apertura pari alla distanza tra i telescopi coinvolti.</p>
+
+    <h5>Lunghezze d'onda radio:</h5>
+    <p>L'EHT ha osservato M87* a una lunghezza d'onda di 1,3 mm (230 GHz), che corrisponde alla banda millimetrica delle onde radio. Questa lunghezza d'onda è ideale per penetrare il gas e la polvere circostanti il buco nero, rivelando la silhouette scura dell'orizzonte degli eventi contro il disco di accrescimento luminoso.</p>
+    <div class="clear"></div>
+
+    <h4>7.2.3 Implicazioni Scientifiche:</h4>
+    <p>L'immagine di M87* ha avuto profonde implicazioni scientifiche. Ha fornito una conferma diretta dell'esistenza degli orizzonti degli eventi e ha permesso di testare la relatività generale in un regime di gravità estrema. Infatti le dimensioni dell'ombra di M87* erano in accordo con le previsioni della relatività generale, confermando ancora una volta la validità della teoria di Einstein in un contesto estremo. Inoltre le osservazioni di M87* hanno fornito nuovi dati sul meccanismo di formazione dei getti relativistici, contribuendo a chiarire il ruolo del campo magnetico e del plasma circostante nella loro emissione; un approfondimento ulteriore a riguardo è presente nello studio <em>"A ring-like accretion structure in M87 connecting its black hole and jet"</em> pubblicato su <em>Nature</em> nel 2023, il quale attraverso l'aumento della risoluzione delle immagini ottenute qualche anno prima dall'EHT, ha mostrato che il getto con bordo luminoso si collega al flusso di accrescimento del buco nero. Vicino al buco nero, il profilo di emissione della regione di lancio del getto è più ampio rispetto al profilo previsto per un getto alimentato dal buco nero, suggerendo la possibile presenza di un vento associato al flusso di accrescimento.</p>
+
+    <h4>7.2.4 Pospettive Future:</h4>
+    <p>Il successo dell'EHT nell'imaging di M87* ha aperto la strada a futuri studi sui buchi neri supermassicci e sulla fisica delle gravità estreme. I futuri miglioramenti nella tecnologia dei radiotelescopi e degli algoritmi di imaging consentiranno di ottenere immagini più dettagliate e di osservare nuovi buchi neri in altre galassie. A questo proposito citiamo il più recente studio (2022) che ha portato al raggiungimento dell'immagine del buco nero supermassiccio al centro della nostra galassia, Sagittario A* (Sgr A*), che, sebbene più vicino di M87*, è più difficile da osservare a causa delle variazioni più rapide del disco di accrescimento: infatti Sgr A* è \(1500\) volte più piccolo di M87* ed è una caratteristica ormai nota che attorno a buchi neri più piccoli la materia si muova molto più caoticamente, con moti vorticosi più veloci. Inoltre tra noi e Sgr A* è presente molta polvere interstellare che rende ancora più difficoltosa la raccolta dati. Speriamo in futuro di poter ottenere ancora meravigliose immagini di buchi neri.</p>
+
+    <h2 id="sec8">8. Conclusione:</h2>
+    <p>Per concludere possiamo riassumere dicendo che i buchi neri rappresentano una classe di oggetti astrofisici estremamente vari e complessi, con origini che spaziano dal collasso stellare al collasso di gas primordiale, fino alla possibile formazione nei primi istanti dell'universo. Ognuno di questi tipi di buchi neri offre una finestra unica per esplorare le leggi della fisica. Ci auguriamo che attraverso nuove tecnologie, come lo studio sempre più massiccio delle onde gravitazionali e l'affinamento dei telescopi spaziali, si possa sempre più far luce sulla natura di questi oggetti esotici e misteriosi.</p>
+
+    <h2 id="sec9">9. Bibliografia:</h2>
+    <ul>
+        <li><em>"The Road To Reality", Roger Penrose, 2004</em></li>
+        <li><em>"Dispense di Metodi Matematici per la Relatività Generale", Pierre Martinetti, 2023</em></li>
+        <li><em>"Disco di Accrescimento", Wikipedia</em> <a href="https://it.wikipedia.org/wiki/Disco_di_accrescimento">https://it.wikipedia.org/wiki/Disco_di_accrescimento</a></li>
+        <li><em>"Cygnus X-1", Wikipedia</em> <a href="https://en.wikipedia.org/wiki/Cygnus_X-1">https://en.wikipedia.org/wiki/Cygnus_X-1</a></li>
+        <li><em>"The Primary Orbit and Absorption Lines of HDE 226868 (Cygnus X-1)"</em>; Ninkov Z. ,  Walker G. A. H. ,  Yang S.;  <em>Astrophysical Journal v.321, p.425</em> <a href="https://ui.adsabs.harvard.edu/abs/1987ApJ...321..425N/abstract">https://ui.adsabs.harvard.edu/abs/1987ApJ...321..425N/abstract</a></li>
+        <li><em>"Astrophysics for Physicists", Arnab Rai Choudhuri, 2010</em></li>
+        <li><em>"Black Hole Types", NASA</em> <a href="https://science.nasa.gov/universe/black-holes/types/">https://science.nasa.gov/universe/black-holes/types/</a></li>
+        <li><em>"Dal Big Bang ai Buchi neri - Breve storia del tempo", Stephen Hawking, 1988</em></li>
+        <li><em>"The largely unconstrained multiphase nature of outflows in AGN host galaxies"</em>; Claudia Cicone, Marcella Brusa, Cristina Ramos Almeida, Giovanni Cresci, Bernd Husemann e Vincenzo Mainieri; <em>Nature Astronomy</em> <a href="https://www.nature.com/articles/s41550-018-0406-3">https://www.nature.com/articles/s41550-018-0406-3</a></li>
+        <li><em>"A ring-like accretion structure in M87 connecting its black hole and jet"</em>; Lu, RS., Asada, K., Krichbaum, T.P.; Nature 616, 686–690 (2023). <a href="https://doi.org/10.1038/s41586-023-05843-w">https://doi.org/10.1038/s41586-023-05843-w</a></li>
+        <li><em>"A Fundamental Relation between Supermassive Black Holes and Their Host Galaxies"</em>; Laura Ferrarese, David Merritt; The Astrophysical Journal, Volume 539, Issue 1, pp. L9-L12. <a href="https://ui.adsabs.harvard.edu/abs/2000ApJ...539L...9F/abstract">https://ui.adsabs.harvard.edu/abs/2000ApJ...539L...9F/abstract</a></li>
+        <li><em>"First M87 Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole"</em>; The Event Horizon Telescope Collaboration, Kazunori Akiyama, Antxon Alberdi, Walter Alef, Keiichi Asada, Rebecca Azulay, Anne-Kathrin Baczko, David Ball, Mislav Baloković, John Barrett; <a href="https://iopscience.iop.org/article/10.3847/2041-8213/ab0ec7">https://iopscience.iop.org/article/10.3847/2041-8213/ab0ec7</a></li>
+        <li><em>Dispense del corso, Silvano Tosi. Enzo Franco Branchini</em></li>
+    </ul>
+
+</body>
+</html>
